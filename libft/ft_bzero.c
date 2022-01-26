@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 16:28:18 by alexamar          #+#    #+#             */
-/*   Updated: 2021/11/09 18:57:08 by alexamar         ###   ########.fr       */
+/*   Created: 2021/11/09 18:33:28 by alexamar          #+#    #+#             */
+/*   Updated: 2021/11/09 18:33:32 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 'a' && c <= 'z')
-	{
-		c = c - 32;
-		return (c);
-	}
-	else
-		return (c);
+	ft_memset(s, 0, n);
 }

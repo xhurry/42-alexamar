@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexamar <xandemvieira@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 16:28:18 by alexamar          #+#    #+#             */
-/*   Updated: 2021/11/09 18:57:08 by alexamar         ###   ########.fr       */
+/*   Created: 2021/11/09 21:36:34 by alexamar          #+#    #+#             */
+/*   Updated: 2021/11/09 21:45:49 by alexamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+
 {
-	if (c >= 'a' && c <= 'z')
+	char	*sub;
+	size_t	s_len;
+
+	if (s == NULL)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (start >= s_len)
 	{
-		c = c - 32;
-		return (c);
+		sub = ft_strdup("");
+		return (sub);
 	}
-	else
-		return (c);
+	if ((s_len - start) < len)
+		len = s_len - start;
+	sub = (char *)malloc(len + 1);
+	if (sub != NULL)
+		ft_strlcpy(sub, s + start, len + 1);
+	return (sub);
 }
